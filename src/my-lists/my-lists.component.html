@@ -1,3 +1,5 @@
-<p>
-  my-lists works!
-</p>
+<h1>Mis listas</h1>
+
+<div *ngFor="let list of listsService.allLists()">
+  {{list.name}}
+</div>
