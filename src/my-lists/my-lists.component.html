@@ -1,5 +1,9 @@
 <h1>Mis listas</h1>
 
-<div *ngFor="let list of listsService.allLists()">
-  {{list.name}}
-</div>
+<!-- <button class="new-list-button">Nueva lista</button> -->
+
+<ul class="list">
+  <li *ngFor="let list of listsService.allLists()">
+    <a class="list-item" [routerLink]="list.name.replaceAll(' ', '-').toLowerCase()">{{list.name}}</a>
+  </li>
+</ul>

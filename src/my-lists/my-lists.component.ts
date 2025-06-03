@@ -1,19 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ListsService } from '../services/Lists.service';
 
 @Component({
   selector: 'app-my-lists',
-  imports: [CommonModule],
   templateUrl: './my-lists.component.html',
-  styleUrls: ['./my-lists.component.scss']
+  styleUrls: ['./my-lists.component.scss'],
+  imports: [CommonModule, RouterLink],
 })
-export class MyListsComponent implements OnInit {
-
-  constructor(public readonly listsService: ListsService) {}
-
-  public ngOnInit() {
-
-  }
-
+export class MyListsComponent {
+  public constructor(public readonly listsService: ListsService) {}
 }
