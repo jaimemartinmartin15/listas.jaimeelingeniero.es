@@ -4,6 +4,6 @@
 
 <ul class="list">
   <li *ngFor="let list of listsService.allLists()">
-    <a class="list-item" [routerLink]="list.name.replaceAll(' ', '-').toLowerCase()">{{list.name}}</a>
+    <a class="list-item" routerLink="{{list.name | toPath}}">{{list.name}}</a>
   </li>
 </ul>
