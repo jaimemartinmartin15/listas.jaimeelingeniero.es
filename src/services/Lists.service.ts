@@ -5,7 +5,7 @@ import { List } from "../models/list";
   providedIn: 'root',
 })
 export class ListsService {
-  public allLists() {
+  public allLists(): List[] {
     return JSON.parse(localStorage.getItem('lists') || '[]');
   }
 
