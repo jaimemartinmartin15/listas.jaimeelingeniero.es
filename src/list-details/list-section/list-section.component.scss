@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+h2.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-section-header);
+  padding: 4px 16px;
+  margin: 0 0;
+  border-top: 2px solid color-mix(in srgb, var(--color-section-header) 70%, black);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-section-header) 70%, black);
+
+  input.header__name {
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+  }
+
+  .header__progress {
+    padding: 0 10px;
+    text-wrap: nowrap;
+    font-size: 0.8rem;
+  }
+
+  svg.header__arrow {
+    flex-shrink: 0;
+    transform: rotate(180deg);
+    padding: 5px;
+    transition: transform var(--transition-time);
+  }
+}
+
+div.collapsible {
+  text-align: center;
+
+  .items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 10px 0;
+
+    li.list-item {
+      list-style: none;
+      width: 100%;
+    }
+  }
+
+  button.add-item {
+    border: 2px solid var(--color-background-button);
+    background-color: var(--color-background-button);
+    box-shadow: 3px 3px 5px var(--color-box-shadow);
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+  }
+}
