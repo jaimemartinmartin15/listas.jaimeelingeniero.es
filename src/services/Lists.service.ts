@@ -1,29 +1,34 @@
 import { Injectable } from "@angular/core";
 import { List } from "../models/list";
 
+const LOCAL_STORAGE_KEY = 'lists';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ListsService {
+  private readonly lists: List[];
+
+  public constructor() {
+    this.lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+  }
+
   public allLists(): List[] {
-    return JSON.parse(localStorage.getItem('lists') || '[]');
+    return this.lists;
   }
 
   public createList(name: string) {
-    const existingLists: List[] = JSON.parse(localStorage.getItem('lists') || '[]');
-    existingLists.push({name, sections: []});
-    localStorage.setItem('lists', JSON.stringify(existingLists));
+    this.lists.push({ name, sections: [{ name: '', items: [{ description: '', completed: false }] }] });
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.lists));
   }
 
-  public updateList(list: List) {
-    const existingLists: List[] = JSON.parse(localStorage.getItem('lists') || '[]');
-    const el: List = existingLists.find(l => l.name === list.name)!;
-    existingLists[existingLists.indexOf(el)] = list;
-    localStorage.setItem('lists', JSON.stringify(existingLists));
+  public writeLists() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.lists));
   }
 
-  public deleteList(name: string) {
-    const existingLists: List[] = JSON.parse(localStorage.getItem('lists') || '[]');
-    localStorage.setItem('lists', JSON.stringify(existingLists.filter(l => l.name !== name)));
+  public deleteList(list: List) {
+    const index = this.lists.indexOf(list);
+    this.lists.splice(index, 1);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.lists));
   }
 }
