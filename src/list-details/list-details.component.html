@@ -1,0 +1,13 @@
+<header>
+  <button class="back-button">
+    <svg appDealCardsSvg viewBox="0 0 1000 1000"></svg>
+  </button>
+
+  <h1>{{list.name}}</h1>
+
+  <button class="delete-button">
+    <svg appTrashCanSvg viewBox="0 0 1000 1000"></svg>
+  </button>
+</header>
+
+<app-list-section *ngFor="let section of list.sections" [section]="section"></app-list-section>
