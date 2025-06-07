@@ -99,6 +99,12 @@
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
+        },
+        "icons": {
+          "builder": "@jaimemartinmartin15/jei-devkit-angular-builders:generate-icons",
+          "options": {
+            "configFile": "src/svg.json"
+          }
         }
       }
     }
