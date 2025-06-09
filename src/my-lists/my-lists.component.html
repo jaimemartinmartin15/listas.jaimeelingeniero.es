@@ -6,7 +6,7 @@
 <ul>
   <li *ngFor="let list of listsService.allLists()">
     <a routerLink="{{list.name | toPath}}">
-      <span>{{list.name}}</span>
+      <span class="list-name">{{list.name}}</span>
       <span class="progress">{{completedItems(list)}} de {{totalItems(list)}}</span>
     </a>
   </li>

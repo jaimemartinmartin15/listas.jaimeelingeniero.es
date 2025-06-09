@@ -1,12 +1,12 @@
 <header>
   <button class="back-button" (click)="navigateHome()">
-    <svg appBackArrowSvg />
+    <svg appBackArrowSvg></svg>
   </button>
 
   <h1 class="title">{{list.name}}</h1>
 
   <button class="delete-button" (click)="deleteListDialog.showModal()">
-    <svg appTrashCanSvg />
+    <svg appTrashCanSvg></svg>
   </button>
 </header>
 
@@ -17,10 +17,10 @@
 </ul>
 
 <footer>
-  <button (click)="cleanChecksDialog.showModal()"><svg appEraserSvg /></button>
+  <button (click)="cleanChecksDialog.showModal()"><svg appEraserSvg></svg></button>
   <button (click)="toggleSections()"><svg appChevronSvg
-      [ngClass]="{'toggle-sections-button': true, 'toggle-sections-button--expanded': list.isExpanded}" /></button>
-  <button (click)="addNewSection()"><svg appPlusSvg /></button>
+      [ngClass]="{'toggle-sections-button': true, 'toggle-sections-button--expanded': list.isExpanded}"></svg></button>
+  <button (click)="addNewSection()"><svg appPlusSvg></svg></button>
 </footer>
 
 <dialog class="dialog" #deleteListDialog>

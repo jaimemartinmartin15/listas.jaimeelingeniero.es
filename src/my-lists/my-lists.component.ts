@@ -33,7 +33,7 @@ export class MyListsComponent {
     this.name = input.value.trim();
 
     this.isNameValid = this.name.length > 0
-      && this.name.length < 16
+      && this.name.length < 20
       && !this.listsService.allLists().find(list => this.toPathPipe.transform(list.name) === this.toPathPipe.transform(this.name));
   }
 
