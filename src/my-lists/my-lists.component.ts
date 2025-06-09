@@ -38,6 +38,8 @@ export class MyListsComponent {
   }
 
   public createNewList() {
+    if (this.name.length === 0) return;
+
     this.listsService.createList(this.name);
     this.router.navigate([this.toPathPipe.transform(this.name)]);
   }
