@@ -52,4 +52,16 @@ export class ListDetailsComponent implements OnInit {
     this.list.isExpanded = !this.list.isExpanded;
     this.listsService.writeLists();
   }
+
+  public addNewSection() {
+    this.list.sections.push({
+      name: '',
+      isExpanded: true,
+      items: [{
+        description: '',
+        completed: false,
+      }]
+    });
+    this.listsService.writeLists();
+  }
 }
