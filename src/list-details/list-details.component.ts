@@ -33,4 +33,9 @@ export class ListDetailsComponent implements OnInit {
   public navigateHome() {
     this.router.navigate(['']);
   }
+
+  public deleteList() {
+    this.listsService.deleteList(this.list);
+    this.navigateHome();
+  }
 }

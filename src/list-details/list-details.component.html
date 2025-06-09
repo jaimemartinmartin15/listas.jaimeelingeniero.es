@@ -5,9 +5,25 @@
 
   <h1 class="title">{{list.name}}</h1>
 
-  <button class="delete-button">
+  <button class="delete-button" (click)="deleteListDialog.showModal()">
     <svg appTrashCanSvg />
   </button>
 </header>
 
 <app-list-section *ngFor="let section of list.sections" [section]="section"></app-list-section>
+
+<dialog class="delete-list-dialog" #deleteListDialog>
+  <div class="content">
+    <p>¿Eliminar esta lista?</p>
+    <p><strong>{{list.name}}</strong></p>
+
+    <div class="buttons-wrapper">
+      <button class="keep" (click)="deleteListDialog.close()">
+        Mantener
+      </button>
+      <button class="delete" (click)="deleteList()">
+        Eliminar
+      </button>
+    </div>
+  </div>
+</dialog>
