@@ -18,7 +18,8 @@
 
 <footer>
   <button (click)="cleanChecksDialog.showModal()"><svg appCheckListSvg /></button>
-  <button><svg appChevronSvg /></button>
+  <button (click)="toggleSections()"><svg appChevronSvg
+      [ngClass]="{'toggle-sections-button': true, 'toggle-sections-button--expanded': list.isExpanded}" /></button>
   <button><svg appPlusSvg /></button>
 </footer>
 

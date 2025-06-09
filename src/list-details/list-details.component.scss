@@ -67,6 +67,14 @@ footer {
     padding: 5px;
     box-shadow: 3px 3px 5px var(--color-box-shadow);
     width: 30px;
+
+    svg.toggle-sections-button {
+      transition: transform var(--transition-time);
+
+      &--expanded {
+        transform: rotate(180deg);
+      }
+    }
   }
 }
 

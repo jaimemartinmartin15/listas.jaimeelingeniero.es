@@ -20,6 +20,7 @@ export class ListsService {
   public createList(name: string) {
     this.lists.push({
       name,
+      isExpanded: true,
       sections: [{
         name: '',
         isExpanded: true,

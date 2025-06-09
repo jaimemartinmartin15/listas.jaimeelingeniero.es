@@ -46,4 +46,10 @@ export class ListDetailsComponent implements OnInit {
     this.cleanChecksDialog.nativeElement.close();
     this.listsService.writeLists();
   }
+
+  public toggleSections() {
+    this.list.sections.forEach(section => section.isExpanded = !this.list.isExpanded)
+    this.list.isExpanded = !this.list.isExpanded;
+    this.listsService.writeLists();
+  }
 }

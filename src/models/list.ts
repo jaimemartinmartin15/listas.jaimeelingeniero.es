@@ -11,5 +11,6 @@ export interface Section {
 
 export interface List {
   name: string;
+  isExpanded: boolean;
   sections: Section[];
 }
