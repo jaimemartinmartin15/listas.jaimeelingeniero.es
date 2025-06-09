@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { List } from '../models/list';
 import { ToPathPipe } from '../pipes/to-path.pipe';
@@ -14,6 +14,8 @@ import { ListSectionComponent } from './list-section/list-section.component';
   imports: [CommonModule, ListSectionComponent, IconsSvgModule],
 })
 export class ListDetailsComponent implements OnInit {
+  @ViewChild('cleanChecksDialog') cleanChecksDialog: ElementRef<HTMLDialogElement>;
+
   @Input() listId!: string;
 
   public list: List;
@@ -37,5 +39,11 @@ export class ListDetailsComponent implements OnInit {
   public deleteList() {
     this.listsService.deleteList(this.list);
     this.navigateHome();
+  }
+
+  public cleanChecks() {
+    this.list.sections.forEach(section => section.items.forEach(item => item.completed = false))
+    this.cleanChecksDialog.nativeElement.close();
+    this.listsService.writeLists();
   }
 }

@@ -17,22 +17,37 @@
 </ul>
 
 <footer>
-  <button><svg appCheckListSvg /></button>
+  <button (click)="cleanChecksDialog.showModal()"><svg appCheckListSvg /></button>
   <button><svg appChevronSvg /></button>
   <button><svg appPlusSvg /></button>
 </footer>
 
-<dialog class="delete-list-dialog" #deleteListDialog>
+<dialog class="dialog" #deleteListDialog>
   <div class="content">
     <p>¿Eliminar esta lista?</p>
     <p><strong>{{list.name}}</strong></p>
 
     <div class="buttons-wrapper">
-      <button class="keep" (click)="deleteListDialog.close()">
+      <button class="primary-button" (click)="deleteListDialog.close()">
         Mantener
       </button>
-      <button class="delete" (click)="deleteList()">
+      <button class="secondary-button" (click)="deleteList()">
         Eliminar
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dialog" #cleanChecksDialog>
+  <div class="content">
+    <p>¿Limpiar todas las marcas?</p>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="cleanChecksDialog.close()">
+        Cancelar
+      </button>
+      <button class="secondary-button" (click)="cleanChecks()">
+        Limpiar
       </button>
     </div>
   </div>
