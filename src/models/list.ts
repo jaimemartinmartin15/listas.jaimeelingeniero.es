@@ -5,6 +5,7 @@ export interface Item {
 
 export interface Section {
   name: string;
+  isExpanded: boolean;
   items: Item[];
 }
 

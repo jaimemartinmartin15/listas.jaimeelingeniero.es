@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { CollapsibleModule } from '@jaimemartinmartin15/jei-devkit-angular-shared';
 import { Section } from '../../models/list';
 import { ListsService } from '../../services/Lists.service';
 import { IconsSvgModule } from '../../svg-output/icons-svg.module';
@@ -9,7 +10,7 @@ import { ListItemComponent } from '../list-item/list-item.component';
   selector: 'app-list-section',
   templateUrl: './list-section.component.html',
   styleUrls: ['./list-section.component.scss'],
-  imports: [CommonModule, ListItemComponent, IconsSvgModule],
+  imports: [CommonModule, ListItemComponent, IconsSvgModule, CollapsibleModule],
 })
 export class ListSectionComponent {
   @Input() section: Section;
@@ -24,6 +25,11 @@ export class ListSectionComponent {
 
   get numberOfCompletedItems(): number {
     return this.section.items.filter(i => i.completed).length;
+  }
+
+  public toggleSection() {
+    this.section.isExpanded = !this.section.isExpanded;
+    this.listsService.writeLists();
   }
 
   public addNewItem() {

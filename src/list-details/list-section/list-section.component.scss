@@ -31,10 +31,14 @@ h2.header {
 
   svg.header__arrow {
     flex-shrink: 0;
-    transform: rotate(180deg);
+    transform: rotate(0);
     padding: 5px;
     width: 15px;
     transition: transform var(--transition-time);
+
+    &--expanded {
+      transform: rotate(180deg);
+    }
   }
 }
 

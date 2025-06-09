@@ -18,7 +18,17 @@ export class ListsService {
   }
 
   public createList(name: string) {
-    this.lists.push({ name, sections: [{ name: '', items: [{ description: '', completed: false }] }] });
+    this.lists.push({
+      name,
+      sections: [{
+        name: '',
+        isExpanded: true,
+        items: [{
+          description: '',
+          completed: false,
+        }]
+      }]
+    });
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.lists));
   }
 
