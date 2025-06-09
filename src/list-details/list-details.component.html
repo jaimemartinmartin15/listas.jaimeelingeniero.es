@@ -1,9 +1,9 @@
 <header>
-  <button class="back-button">
+  <button class="back-button" (click)="navigateHome()">
     <svg appBackArrowSvg />
   </button>
 
-  <h1>{{list.name}}</h1>
+  <h1 class="title">{{list.name}}</h1>
 
   <button class="delete-button">
     <svg appTrashCanSvg />

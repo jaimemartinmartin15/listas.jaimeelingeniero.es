@@ -25,8 +25,12 @@ export class ListDetailsComponent implements OnInit {
     this.list = this.listsService.allLists().find(l => toPathPipe.transform(l.name) === this.listId)!;
 
     if (!this.list) {
-      this.router.navigate(['']);
+      this.navigateHome()
       return;
     }
+  }
+
+  public navigateHome() {
+    this.router.navigate(['']);
   }
 }

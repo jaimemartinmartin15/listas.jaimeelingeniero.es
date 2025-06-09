@@ -9,6 +9,10 @@ header {
   padding: 0 30px;
   font-size: 1rem;
 
+  h1.title {
+    text-align: center;
+  }
+
   button {
     display: flex;
     justify-content: center;
