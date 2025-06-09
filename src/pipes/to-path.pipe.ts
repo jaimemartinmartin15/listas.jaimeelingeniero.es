@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ToPathPipe implements PipeTransform {
   public transform(value: string): string {
-    return value.toLowerCase().replaceAll(' ', '-');
+    return value.toLowerCase().trim().replaceAll(' ', '-');
   }
 }

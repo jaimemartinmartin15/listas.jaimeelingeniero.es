@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { List } from '../models/list';
 import { ToPathPipe } from '../pipes/to-path.pipe';
 import { ListsService } from '../services/Lists.service';
@@ -13,7 +13,12 @@ import { IconsSvgModule } from '../svg-output/icons-svg.module';
   imports: [CommonModule, RouterLink, ToPathPipe, IconsSvgModule],
 })
 export class MyListsComponent {
-  public constructor(public readonly listsService: ListsService) { }
+  private toPathPipe = new ToPathPipe();
+
+  public isNameValid: boolean = true;
+  public name: string = '';
+
+  public constructor(public readonly listsService: ListsService, private readonly router: Router) { }
 
   public completedItems(list: List) {
     return list.sections.flatMap(section => section.items).filter(item => item.completed).length;
@@ -21,5 +26,19 @@ export class MyListsComponent {
 
   public totalItems(list: List) {
     return list.sections.flatMap(section => section.items).length;
+  }
+
+  public onChangeName(e: Event) {
+    const input = e.target as HTMLInputElement;
+    this.name = input.value.trim();
+
+    this.isNameValid = this.name.length > 0
+      && this.name.length < 16
+      && !this.listsService.allLists().find(list => this.toPathPipe.transform(list.name) === this.toPathPipe.transform(this.name));
+  }
+
+  public createNewList() {
+    this.listsService.createList(this.name);
+    this.router.navigate([this.toPathPipe.transform(this.name)]);
   }
 }

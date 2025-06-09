@@ -1,6 +1,6 @@
 <header>
   <h1>Mis listas</h1>
-  <button><svg appPlusSvg></svg></button>
+  <button (click)="addNewListDialog.showModal()"><svg appPlusSvg></svg></button>
 </header>
 
 <ul>
@@ -11,3 +11,22 @@
     </a>
   </li>
 </ul>
+
+<dialog class="dialog" #addNewListDialog>
+  <div class="content">
+    <p>Introduce el nombre de la lista</p>
+
+    <input type="text" (input)="onChangeName($event)">
+
+    <div class="error-message" *ngIf="!isNameValid">Pueba otro nombre</div>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="createNewList()" [disabled]="!isNameValid">
+        Añadir
+      </button>
+      <button class="secondary-button" (click)="addNewListDialog.close()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</dialog>
