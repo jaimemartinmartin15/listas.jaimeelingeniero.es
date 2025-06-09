@@ -10,7 +10,11 @@
   </button>
 </header>
 
-<app-list-section *ngFor="let section of list.sections" [section]="section"></app-list-section>
+<ul class="sections-list">
+  <li *ngFor="let section of list.sections">
+    <app-list-section [section]="section"></app-list-section>
+  </li>
+</ul>
 
 <dialog class="delete-list-dialog" #deleteListDialog>
   <div class="content">
