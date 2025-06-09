@@ -1,9 +1,13 @@
-<h1>Mis listas</h1>
+<header>
+  <h1>Mis listas</h1>
+  <button><svg appPlusSvg></svg></button>
+</header>
 
-<!-- <button class="new-list-button">Nueva lista</button> -->
-
-<ul class="list">
+<ul>
   <li *ngFor="let list of listsService.allLists()">
-    <a class="list-item" routerLink="{{list.name | toPath}}">{{list.name}}</a>
+    <a routerLink="{{list.name | toPath}}">
+      <span>{{list.name}}</span>
+      <span class="progress">{{completedItems(list)}} de {{totalItems(list)}}</span>
+    </a>
   </li>
 </ul>
