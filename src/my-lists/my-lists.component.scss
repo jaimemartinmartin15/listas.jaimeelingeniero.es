@@ -1,5 +1,5 @@
-@import "../shared/header";
-@import "../shared/dialog";
+@use "../shared/header";
+@use "../shared/dialog";
 
 :host {
   --padding: 15px;
