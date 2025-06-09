@@ -19,10 +19,12 @@ h2.header {
     background-color: transparent;
     outline: none;
     font-weight: bold;
+    padding-top: 2px;
   }
 
   .header__progress {
-    padding: 0 10px;
+    padding: 2px 10px 0;
+    padding-top: 2px;
     text-wrap: nowrap;
     font-size: 0.8rem;
   }
@@ -31,6 +33,7 @@ h2.header {
     flex-shrink: 0;
     transform: rotate(180deg);
     padding: 5px;
+    width: 15px;
     transition: transform var(--transition-time);
   }
 }

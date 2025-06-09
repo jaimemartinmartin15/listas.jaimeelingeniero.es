@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Section } from '../../models/list';
 import { ListsService } from '../../services/Lists.service';
+import { IconsSvgModule } from '../../svg-output/icons-svg.module';
 import { ListItemComponent } from '../list-item/list-item.component';
 
 @Component({
   selector: 'app-list-section',
   templateUrl: './list-section.component.html',
   styleUrls: ['./list-section.component.scss'],
-  imports: [CommonModule, ListItemComponent],
+  imports: [CommonModule, ListItemComponent, IconsSvgModule],
 })
 export class ListSectionComponent {
   @Input() section: Section;

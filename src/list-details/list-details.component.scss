@@ -15,11 +15,16 @@ header {
     align-items: center;
     border: none;
     background-color: transparent;
-    width: 25px;
-    height: 25px;
     padding: 0;
 
+    &.back-button {
+      width: 20px;
+      height: 20px;
+    }
+
     &.delete-button {
+      width: 25px;
+      height: 25px;
       stroke: red;
       fill: red;
     }

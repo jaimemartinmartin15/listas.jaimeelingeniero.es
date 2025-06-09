@@ -5,7 +5,7 @@
     "modules": [
         {
             "name": "IconsSvg",
-            "files": ["deal-cards", "trash-can"]
+            "files": ["back-arrow", "trash-can", "chevron"]
         }
     ]
 }
