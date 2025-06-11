@@ -12,8 +12,9 @@
   </h2>
 
   <div class="collapsible" appCollapsibleContent>
-    <ul class="items-container">
-      <li *ngFor="let item of section.items" class="list-item">
+    <ul class="items-container" cdkDropList (cdkDropListDropped)="onOrderItems($event)">
+      <li *ngFor="let item of section.items" class="list-item" cdkDrag cdkDragLockAxis="y"
+        cdkDragPreviewContainer="parent" [cdkDragStartDelay]="100">
         <app-list-item [item]="item"></app-list-item>
       </li>
     </ul>

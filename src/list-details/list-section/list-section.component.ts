@@ -1,7 +1,8 @@
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CollapsibleModule } from '@jaimemartinmartin15/jei-devkit-angular-shared';
-import { Section } from '../../models/list';
+import { Item, Section } from '../../models/list';
 import { ListsService } from '../../services/Lists.service';
 import { IconsSvgModule } from '../../svg-output/icons-svg.module';
 import { ListItemComponent } from '../list-item/list-item.component';
@@ -10,7 +11,7 @@ import { ListItemComponent } from '../list-item/list-item.component';
   selector: 'app-list-section',
   templateUrl: './list-section.component.html',
   styleUrls: ['./list-section.component.scss'],
-  imports: [CommonModule, ListItemComponent, IconsSvgModule, CollapsibleModule],
+  imports: [CommonModule, ListItemComponent, IconsSvgModule, CollapsibleModule, CdkDrag, CdkDropList],
 })
 export class ListSectionComponent {
   @Input() section: Section;
@@ -34,6 +35,11 @@ export class ListSectionComponent {
 
   public addNewItem() {
     this.section.items.push({ description: '', completed: false });
+    this.listsService.writeLists();
+  }
+
+  public onOrderItems(event: CdkDragDrop<Item[]>) {
+    moveItemInArray(this.section.items, event.previousIndex, event.currentIndex);
     this.listsService.writeLists();
   }
 }
