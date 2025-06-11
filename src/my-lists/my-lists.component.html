@@ -3,9 +3,10 @@
   <button (click)="addNewListDialog.showModal()"><svg appPlusSvg></svg></button>
 </header>
 
-<ul>
-  <li *ngFor="let list of listsService.allLists()">
-    <a routerLink="{{list.name | toPath}}">
+<ul cdkDropList (cdkDropListDropped)="onOrderList($event)">
+  <li *ngFor="let list of listsService.allLists()" cdkDrag cdkDragLockAxis="y" cdkDragPreviewContainer="parent"
+    [cdkDragStartDelay]="100">
+    <a routerLink="{{list.name | toPath}}" (contextmenu)="$event.preventDefault()">
       <span class="list-name">{{list.name}}</span>
       <span class="progress">{{completedItems(list)}} de {{totalItems(list)}}</span>
     </a>

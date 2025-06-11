@@ -1,3 +1,4 @@
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
@@ -10,7 +11,7 @@ import { IconsSvgModule } from '../svg-output/icons-svg.module';
   selector: 'app-my-lists',
   templateUrl: './my-lists.component.html',
   styleUrls: ['./my-lists.component.scss'],
-  imports: [CommonModule, RouterLink, ToPathPipe, IconsSvgModule],
+  imports: [CommonModule, RouterLink, ToPathPipe, IconsSvgModule, CdkDrag, CdkDropList],
 })
 export class MyListsComponent {
   private toPathPipe = new ToPathPipe();
@@ -42,5 +43,10 @@ export class MyListsComponent {
 
     this.listsService.createList(this.name);
     this.router.navigate([this.toPathPipe.transform(this.name)]);
+  }
+
+  public onOrderList(event: CdkDragDrop<List[]>) {
+    moveItemInArray(this.listsService.allLists(), event.previousIndex, event.currentIndex);
+    this.listsService.writeLists();
   }
 }
