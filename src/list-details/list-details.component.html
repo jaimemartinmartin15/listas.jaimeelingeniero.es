@@ -10,9 +10,9 @@
   </button>
 </header>
 
-<ul class="sections-list" cdkDropList (cdkDropListDropped)="onOrderSections($event)">
+<ul class="sections-list" cdkDropList (cdkDropListDropped)="onOrderSections($event)" #boundary>
   <li *ngFor="let section of list.sections" cdkDrag cdkDragLockAxis="y" cdkDragPreviewContainer="parent"
-    [cdkDragStartDelay]="100">
+    [cdkDragStartDelay]="100" [cdkDragBoundary]="boundary">
     <app-list-section [section]="section"></app-list-section>
   </li>
 </ul>
