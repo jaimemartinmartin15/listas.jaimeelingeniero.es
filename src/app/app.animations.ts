@@ -9,7 +9,8 @@ export const routeTransition = trigger('routeTransition', [
       style({
         position: 'absolute',
         inset: 0,
-        transform: 'translateX(100%)',
+        opacity: 0,
+        transform: 'translateY(50%) scale(0.8)',
       })
     ], { optional: true }),
 
@@ -20,7 +21,7 @@ export const routeTransition = trigger('routeTransition', [
       ], { optional: true }),
 
       query(':enter', [
-        animate(transitionTime, style({ transform: 'translateX(0)' }))
+        animate(transitionTime, style({ opacity: 1, transform: 'translateY(0) scale(1)', }))
       ], { optional: true })
     ])
   ]),
@@ -33,7 +34,7 @@ export const routeTransition = trigger('routeTransition', [
       })
     ], { optional: true }),
     query(':leave', [
-      animate(transitionTime, style({ transform: 'scale(0.8)', opacity: 0 }))
+      animate(transitionTime, style({ transform: 'translateY(50%) scale(0.8)', opacity: 0 }))
     ], { optional: true }),
   ]),
 ]);
