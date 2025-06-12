@@ -7,6 +7,8 @@
       <span>{{numberOfCompletedItems}}</span>/<span>{{section.items.length}}</span>
     </span>
 
+    <svg appTrashCanSvg class="header__trash-can" (click)="deleteSection()"></svg>
+
     <svg class="header__arrow" [ngClass]="{'header__arrow--expanded': section.isExpanded}" appChevronSvg
       (click)="toggleSection()" />
   </h2>

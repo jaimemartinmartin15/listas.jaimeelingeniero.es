@@ -28,6 +28,12 @@ export class ListSectionComponent {
     return this.section.items.filter(i => i.completed).length;
   }
 
+  public deleteSection() {
+    const list = this.listsService.allLists().find(l => l.sections.includes(this.section));
+    list?.sections.splice(list.sections.indexOf(this.section), 1);
+    this.listsService.writeLists();
+  }
+
   public toggleSection() {
     this.section.isExpanded = !this.section.isExpanded;
     this.listsService.writeLists();

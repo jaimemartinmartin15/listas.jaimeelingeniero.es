@@ -38,15 +38,23 @@ h2.header {
     font-size: 0.8rem;
   }
 
-  svg.header__arrow {
+  svg {
     flex-shrink: 0;
-    transform: rotate(0);
     padding: 5px;
     width: 15px;
-    transition: transform var(--transition-time);
 
-    &--expanded {
-      transform: rotate(180deg);
+    &.header__trash-can {
+      stroke: black;
+      fill: black;
+    }
+
+    &.header__arrow {
+      transform: rotate(0);
+      transition: transform var(--transition-time);
+
+      &--expanded {
+        transform: rotate(180deg);
+      }
     }
   }
 }
