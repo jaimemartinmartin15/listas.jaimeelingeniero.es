@@ -1,6 +1,6 @@
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { List } from '../models/list';
 import { ToPathPipe } from '../pipes/to-path.pipe';
@@ -14,6 +14,8 @@ import { IconsSvgModule } from '../svg-output/icons-svg.module';
   imports: [CommonModule, RouterLink, ToPathPipe, IconsSvgModule, CdkDrag, CdkDropList],
 })
 export class MyListsComponent {
+  @ViewChild('addNewListDialog') addNewListDialog: ElementRef<HTMLDialogElement>;
+
   private toPathPipe = new ToPathPipe();
 
   public isNameValid: boolean = true;
@@ -34,13 +36,14 @@ export class MyListsComponent {
     this.name = input.value.trim();
 
     this.isNameValid = this.name.length > 0
-      && this.name.length < 20
+      && this.name.length < 30
       && !this.listsService.allLists().find(list => this.toPathPipe.transform(list.name) === this.toPathPipe.transform(this.name));
   }
 
   public createNewList() {
     if (this.name.length === 0) return;
 
+    this.addNewListDialog.nativeElement.close();
     this.listsService.createList(this.name);
     this.router.navigate([this.toPathPipe.transform(this.name)]);
   }

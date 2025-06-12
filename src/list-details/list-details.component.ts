@@ -15,6 +15,7 @@ import { ListSectionComponent } from './list-section/list-section.component';
   imports: [CommonModule, ListSectionComponent, IconsSvgModule, CdkDrag, CdkDropList],
 })
 export class ListDetailsComponent implements OnInit {
+  @ViewChild('deleteListDialog') deleteListDialog: ElementRef<HTMLDialogElement>;
   @ViewChild('cleanChecksDialog') cleanChecksDialog: ElementRef<HTMLDialogElement>;
 
   @Input() listId!: string;
@@ -34,6 +35,7 @@ export class ListDetailsComponent implements OnInit {
 
   public deleteList() {
     this.listsService.deleteList(this.list);
+    this.deleteListDialog.nativeElement.close();
     this.navigateHome();
   }
 

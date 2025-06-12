@@ -17,7 +17,8 @@ export const routes: Routes = [
     path: '',
     component: MyListsComponent,
     pathMatch: 'full',
-    title: 'Mis listas'
+    title: 'Mis listas',
+    data: { animation: 'MyLists' }
   },
   {
     path: ':listId',
@@ -25,7 +26,8 @@ export const routes: Routes = [
     title: (route: ActivatedRouteSnapshot) => `${getList(route.paramMap.get('listId'))?.name} | Mis listas`,
     canActivate: [
       (route) => getList(route.paramMap.get('listId')) ? true : inject(Router).createUrlTree(['/'])
-    ]
+    ],
+    data: { animation: 'ListDetails' },
   },
   {
     path: '**',
