@@ -26,11 +26,6 @@ export class ListDetailsComponent implements OnInit {
   public ngOnInit() {
     const toPathPipe = new ToPathPipe();
     this.list = this.listsService.allLists().find(l => toPathPipe.transform(l.name) === this.listId)!;
-
-    if (!this.list) {
-      this.navigateHome()
-      return;
-    }
   }
 
   public navigateHome() {
