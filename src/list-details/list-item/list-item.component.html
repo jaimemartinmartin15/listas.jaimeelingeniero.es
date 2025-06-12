@@ -8,3 +8,5 @@
 </label>
 
 <input type="text" [value]="item.description" placeholder="Nuevo ítem" class="name" (input)="onChangeName($event)">
+
+<svg appTrashCanSvg class="trash-can" (click)="deleteItem()"></svg>

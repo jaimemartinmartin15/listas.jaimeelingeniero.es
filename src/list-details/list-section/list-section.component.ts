@@ -2,7 +2,7 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CollapsibleModule } from '@jaimemartinmartin15/jei-devkit-angular-shared';
-import { Item, Section } from '../../models/list';
+import { Item, List, Section } from '../../models/list';
 import { ListsService } from '../../services/Lists.service';
 import { IconsSvgModule } from '../../svg-output/icons-svg.module';
 import { ListItemComponent } from '../list-item/list-item.component';
@@ -14,6 +14,7 @@ import { ListItemComponent } from '../list-item/list-item.component';
   imports: [CommonModule, ListItemComponent, IconsSvgModule, CollapsibleModule, CdkDrag, CdkDropList],
 })
 export class ListSectionComponent {
+  @Input() list: List;
   @Input() section: Section;
 
   public constructor(private readonly listsService: ListsService) { }
@@ -29,8 +30,7 @@ export class ListSectionComponent {
   }
 
   public deleteSection() {
-    const list = this.listsService.allLists().find(l => l.sections.includes(this.section));
-    list?.sections.splice(list.sections.indexOf(this.section), 1);
+    this.list.sections.splice(this.list.sections.indexOf(this.section), 1);
     this.listsService.writeLists();
   }
 

@@ -39,3 +39,11 @@ input[type="text"].name {
   font-size: 0.9rem;
   margin-right: 16px;
 }
+
+svg.trash-can {
+  stroke: gray;
+  fill: gray;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--padding);
+}
