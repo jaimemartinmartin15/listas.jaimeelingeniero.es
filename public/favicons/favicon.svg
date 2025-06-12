@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background-color: #d3ffd3">
+  <rect name="paper" stroke-width="1" stroke="#000000ff" fill="#ffffffff" x="25.0" y="20.0" width="49.0" height="61.0" rx="1.0" ry="1.0" />
+  <rect name="box 1" stroke-width="1" stroke="#000000ff" fill="#3ddf3dff" x="32.0" y="30.0" width="10.0" height="10.0" rx="1.0" ry="1.0" />
+  <path name="check 1" stroke-width="1" stroke="#ffffffff" fill="#00000000" d="M34.5,36L37,37.5 39.4,32.4" />
+  <line name="description 1" stroke-width="1" stroke="#010000ff" fill="#000000ff" x1="47.0" y1="35.0" x2="65.0" y2="35.0" />
+  <rect name="box 2" stroke-width="1" stroke="#000000ff" fill="#3ddf3dff" x="32.0" y="45.0" width="10.0" height="10.0" rx="1.0" ry="1.0" />
+  <path name="check 2" stroke-width="1" stroke="#ffffffff" fill="#00000000" d="M34.8,51.2L37.3,52.7 39.9,47.3" />
+  <line name="description 2" stroke-width="1" stroke="#010000ff" fill="#000000ff" x1="47.0" y1="50.0" x2="65.0" y2="50.0" />
+  <rect name="box 3" stroke-width="1" stroke="#000000ff" fill="#ffffffff" x="32.0" y="60.0" width="10.0" height="10.0" rx="1.0" ry="1.0" />
+  <line name="description 3" stroke-width="1" stroke="#010000ff" fill="#000000ff" x1="47.0" y1="65.0" x2="65.0" y2="65.0" />
+  <path name="pencil pink" stroke-width="1" stroke="#010000ff" fill="#ffc0cbff" d="M77,28.7L85.2,34 83,37.3 75,32.3Z" />
+  <path name="pencil gray" stroke-width="1" stroke="#010000ff" fill="#808080ff" d="M75,32.3L83,37.3 79.8,42.1 72.1,37.3Z" />
+  <path name="pencil yellow" stroke-width="1" stroke="#010000ff" fill="#ffff00ff" d="M72.1,37.3L79.8,42.1 64.3,66.8 56.6,61.9Z" />
+  <path name="pencil orange" stroke-width="1" stroke="#010000ff" fill="#ffa500ff" d="M56.6,62L64,67.1 58.6,71.9 53.9,69.1Z" />
+  <path name="pencil black" stroke-width="1" stroke="#010000ff" fill="#000000ff" d="M53.9,69.5L58,72.2 53.5,74.4Z" />
+</svg>
