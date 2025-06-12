@@ -22,7 +22,7 @@ export class ListDetailsComponent implements OnInit {
 
   public list: List;
 
-  constructor(private readonly listsService: ListsService, private readonly router: Router) { }
+  constructor(private readonly listsService: ListsService, private readonly router: Router, private readonly elRef: ElementRef<HTMLElement>) { }
 
   public ngOnInit() {
     const toPathPipe = new ToPathPipe();
@@ -61,6 +61,11 @@ export class ListDetailsComponent implements OnInit {
       }]
     });
     this.listsService.writeLists();
+    setTimeout(() => {
+      // set the focus on the added section to show the keyboard on mobile
+      const inputsEl = this.elRef.nativeElement.querySelectorAll('input[type="text"].header__name');
+      (inputsEl[inputsEl.length - 1] as HTMLInputElement).focus();
+    })
   }
 
   public onOrderSections(event: CdkDragDrop<Section[]>) {

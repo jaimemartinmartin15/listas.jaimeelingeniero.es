@@ -1,6 +1,6 @@
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { CollapsibleModule } from '@jaimemartinmartin15/jei-devkit-angular-shared';
 import { Item, List, Section } from '../../models/list';
 import { ListsService } from '../../services/Lists.service';
@@ -17,7 +17,7 @@ export class ListSectionComponent {
   @Input() list: List;
   @Input() section: Section;
 
-  public constructor(private readonly listsService: ListsService) { }
+  public constructor(private readonly listsService: ListsService, private readonly elRef: ElementRef<HTMLElement>) { }
 
   public updateSectionName(e: Event) {
     const input = e.target as HTMLInputElement;
@@ -42,6 +42,11 @@ export class ListSectionComponent {
   public addNewItem() {
     this.section.items.push({ description: '', completed: false });
     this.listsService.writeLists();
+    setTimeout(() => {
+      // set the focus on the added item to show the keyboard on mobile
+      const inputsEl = this.elRef.nativeElement.querySelectorAll('input[type="text"].name');
+      (inputsEl[inputsEl.length - 1] as HTMLInputElement).focus();
+    })
   }
 
   public onOrderItems(event: CdkDragDrop<Item[]>) {
