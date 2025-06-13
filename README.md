@@ -1,59 +1,54 @@
 # Listas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Application to make check lists and track completed and pending items.
 
-## Development server
+Deployed to <https://listas.jaimeelingeniero.es>
 
-To start a local development server, run:
+[![Build And Deploy](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml)
 
-```bash
-ng serve
+## Development
+
+Clone the repository:
+
+```text
+git clone https://github.com/jaimemartinmartin15/Listas.git
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Install dependencies:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+npm i
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Start the server:
 
-```bash
-ng generate --help
+```text
+npm run start
 ```
 
-## Building
+## Build
 
 To build the project run:
 
-```bash
-ng build
+```text
+npm run icons
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Deploy
 
-## Running unit tests
+After doing the changes in your branch, increase the [package.json](./package.json) version and then run `npm i` to update the package-lock.json
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Update also [CHANGELOG.md](./CHANGELOG.md) file.
 
-```bash
-ng test
-```
+Then merge the changes in `main` branch and create a tag with the same version than in the package.json
 
-## Running end-to-end tests
+When pushing the tag to the remote, it will trigger the workflow **build-and-publish.yml** automatically to deploy it.
 
-For end-to-end (e2e) testing, run:
+## Workflows
 
-```bash
-ng e2e
-```
+### build-and-publish.yml
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Builds and deploys the application to the server.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Basically, it copies the files in the `dist` folder and puts them in the root folder in the server.
