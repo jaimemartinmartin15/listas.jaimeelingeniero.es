@@ -43,6 +43,14 @@ ul {
       border: 1px solid #a1a3a5;
       border-radius: 6px;
 
+      /* for desktop */
+      @media screen and (min-width: 600px) {
+        &:hover {
+          transform: scale(1.008);
+          border: 1px solid black;
+        }
+      }
+      
       .list-name {
         text-overflow: ellipsis;
         text-wrap: nowrap;

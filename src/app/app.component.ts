@@ -10,7 +10,7 @@ import { routeTransition } from './app.animations';
       <router-outlet  (activate)="onChangePath()"/>
     </div>
     `,
-  styles: [':host { display: block; }'],
+  styles: [':host { display: block; margin: auto; max-width: var(--app-max-width); }'],
   animations: [routeTransition],
 })
 export class AppComponent {

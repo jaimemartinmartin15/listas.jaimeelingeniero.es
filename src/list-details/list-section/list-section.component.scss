@@ -22,6 +22,7 @@ h2.header {
   margin: 0 0;
   border-top: 2px solid color-mix(in srgb, var(--color-section-header) 70%, black);
   border-bottom: 2px solid color-mix(in srgb, var(--color-section-header) 70%, black);
+  cursor: grab;
 
   input.header__name {
     flex-grow: 1;
@@ -40,10 +41,12 @@ h2.header {
     font-size: 0.8rem;
   }
 
-  svg {
+  svg.header__icon {
     flex-shrink: 0;
     padding: 5px;
     width: 15px;
+    cursor: pointer;
+    transition: transform 0.15s;
 
     &.header__trash-can {
       stroke: black;
@@ -53,10 +56,26 @@ h2.header {
 
     &.header__arrow {
       transform: rotate(0);
-      transition: transform var(--transition-time);
+      transition: transform var(--app-transition-time);
 
       &--expanded {
         transform: rotate(180deg);
+      }
+    }
+
+    /* for desktop */
+    @media screen and (min-width: 600px) {
+      &.header__trash-can:hover {
+        transform: scale(1.25);
+      }
+      &.header__arrow {
+        &:hover {
+          transform: rotate(0) scale(1.25);
+        }
+
+        &--expanded:hover {
+          transform: rotate(180deg) scale(1.25);
+        }
       }
     }
   }
@@ -87,5 +106,14 @@ div.collapsible {
     border-radius: 15px;
     padding: 5px 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.15s;
+
+    /* for desktop */
+    @media screen and (min-width: 600px) {
+      &:hover {
+        transform: scale(1.06);
+      }
+    }
   }
 }

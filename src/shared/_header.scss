@@ -24,5 +24,14 @@ header {
     padding: 0;
     border: none;
     background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.15s;
+
+    /* for desktop */
+    @media screen and (min-width: 600px) {
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
   }
 }

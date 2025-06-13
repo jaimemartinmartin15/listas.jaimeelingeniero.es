@@ -1,6 +1,6 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
-const transitionTime = '0.2s';
+const transitionTime = '0.3s'; // --app-transition-time
 
 export const routeTransition = trigger('routeTransition', [
   transition('MyLists => ListDetails', [
@@ -10,6 +10,8 @@ export const routeTransition = trigger('routeTransition', [
         position: 'absolute',
         inset: 0,
         opacity: 0,
+        maxWidth: 'var(--app-max-width)',
+        margin: 'auto',
         transform: 'translateY(50%) scale(0.8)',
       })
     ], { optional: true }),
@@ -30,11 +32,13 @@ export const routeTransition = trigger('routeTransition', [
       style({
         position: 'absolute',
         inset: 0,
+        maxWidth: 'var(--app-max-width)',
+        margin: 'auto',
         transform: 'translateX(0)',
       })
     ], { optional: true }),
     query(':leave', [
-      animate(transitionTime, style({ transform: 'translateY(50%) scale(0.8)', opacity: 0 }))
+      animate(transitionTime, style({ transform: 'translate(-50%, -50%) scale(0)', opacity: 0 }))
     ], { optional: true }),
   ]),
 ]);

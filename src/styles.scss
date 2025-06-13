@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
+  --app-max-width: 600px;
+  --app-transition-time: 0.3s;
+
   --color-section-header: #f4f4f4;
   --color-box-shadow: #dadada;
   --color-app-theme: #d3ffd3;
   --color-text: #0a4a05;
-  --transition-time: 0.3s;
 }
 
 body {

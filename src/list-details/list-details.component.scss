@@ -58,9 +58,18 @@ footer {
     padding: 5px;
     box-shadow: 3px 3px 5px var(--color-box-shadow);
     width: 38px;
+    cursor: pointer;
+    transition: transform var(--app-transition-time);
+
+    /* for desktop */
+    @media screen and (min-width: 600px) {
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
 
     svg.toggle-sections-button {
-      transition: transform var(--transition-time);
+      transition: transform var(--app-transition-time);
 
       &--expanded {
         transform: rotate(180deg);
