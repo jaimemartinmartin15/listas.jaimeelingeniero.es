@@ -4,14 +4,14 @@ Application to make check lists and track completed and pending items.
 
 This project is an Angular application deployed in AWS S3 under domain [listas.jaimeelingeniero.es](https://listas.jaimeelingeniero.es)
 
-[![Build And Deploy](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml)
+[![Build And Deploy](https://github.com/jaimemartinmartin15/listas.jaimeelingeniero.es/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/listas.jaimeelingeniero.es/actions/workflows/build-and-publish.yml)
 
 ## Development
 
 Clone the repository:
 
 ```text
-git clone https://github.com/jaimemartinmartin15/Listas.git
+git clone https://github.com/jaimemartinmartin15/listas.jaimeelingeniero.es.git
 ```
 
 Install dependencies:
