@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  align-items: center;
+  gap: var(--padding, 15px);
+  padding: 0 var(--padding, 15px);
+  background-color: var(--color-app-theme);
+
+  h1 {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+
+  button {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.15s;
+
+    /* for desktop */
+    @media screen and (min-width: 600px) {
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.dialog {
+  width: 80%;
+  max-width: 500px;
+  border: 3px solid black;
+  border-radius: 8px;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.411);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+
+    .buttons-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+
+      button {
+        margin-top: 20px;
+        border: none;
+        background-color: unset;
+        text-decoration: underline;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &.primary-button {
+          color: #00a2e8;
+        }
+
+        &.secondary-button {
+          color: #bc2f2f;
+        }
+      }
+    }
+  }
+}

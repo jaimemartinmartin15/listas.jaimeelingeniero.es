@@ -1,0 +1,56 @@
+<header>
+  <button class="back-button" (click)="navigateHome()">
+    <svg appBackArrowSvg></svg>
+  </button>
+
+  <h1 class="title">{{list.name}}</h1>
+
+  <button class="delete-button" (click)="deleteListDialog.showModal()">
+    <svg appTrashCanSvg></svg>
+  </button>
+</header>
+
+<ul class="sections-list" cdkDropList (cdkDropListDropped)="onOrderSections($event)" #boundary>
+  <li *ngFor="let section of list.sections" cdkDrag cdkDragLockAxis="y" cdkDragPreviewContainer="parent"
+    [cdkDragStartDelay]="100" [cdkDragBoundary]="boundary">
+    <app-list-section [list]="list" [section]="section"></app-list-section>
+  </li>
+</ul>
+
+<footer>
+  <button (click)="cleanChecksDialog.showModal()"><svg appEraserSvg></svg></button>
+  <button (click)="toggleSections()"><svg appChevronSvg
+      [ngClass]="{'toggle-sections-button': true, 'toggle-sections-button--expanded': list.isExpanded}"></svg></button>
+  <button (click)="addNewSection()"><svg appPlusSvg></svg></button>
+</footer>
+
+<dialog class="dialog" #deleteListDialog>
+  <div class="content">
+    <p>¿Eliminar esta lista?</p>
+    <p><strong>{{list.name}}</strong></p>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="deleteListDialog.close()">
+        Mantener
+      </button>
+      <button class="secondary-button" (click)="deleteList()">
+        Eliminar
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dialog" #cleanChecksDialog>
+  <div class="content">
+    <p>¿Limpiar todas las marcas?</p>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="cleanChecksDialog.close()">
+        Cancelar
+      </button>
+      <button class="secondary-button" (click)="cleanChecks()">
+        Limpiar
+      </button>
+    </div>
+  </div>
+</dialog>

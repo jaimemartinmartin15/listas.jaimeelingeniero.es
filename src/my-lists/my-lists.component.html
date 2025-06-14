@@ -1,0 +1,33 @@
+<header>
+  <h1>Mis listas</h1>
+  <button (click)="addNewListDialog.showModal()"><svg appPlusSvg></svg></button>
+</header>
+
+<ul cdkDropList (cdkDropListDropped)="onOrderList($event)">
+  <li *ngFor="let list of listsService.allLists()" cdkDrag cdkDragLockAxis="y" cdkDragPreviewContainer="parent"
+    [cdkDragStartDelay]="100">
+    <a routerLink="{{list.name | toPath}}" (contextmenu)="$event.preventDefault()">
+      <span class="list-name">{{list.name}}</span>
+      <span class="progress">{{completedItems(list)}} de {{totalItems(list)}}</span>
+    </a>
+  </li>
+</ul>
+
+<dialog class="dialog" #addNewListDialog>
+  <div class="content">
+    <p>Nombre de la nueva lista</p>
+
+    <input type="text" (input)="onChangeName($event)">
+
+    <div class="error-message" *ngIf="!isNameValid">Pueba otro nombre</div>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="createNewList()" [disabled]="!isNameValid">
+        Añadir
+      </button>
+      <button class="secondary-button" (click)="addNewListDialog.close()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</dialog>

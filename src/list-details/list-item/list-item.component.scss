@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  align-items: center;
+  cursor: grab;
+}
+
+.checkbox-wrapper {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 16px;
+
+  /* hide the input and the tick */
+  input[type="checkbox"],
+  svg {
+    display: none;
+  }
+
+  &:has(input[type="checkbox"]:checked) {
+    /* change label background */
+    background-color: #3ddf3d;
+
+    svg {
+      /* show tick */
+      display: block;
+      stroke: white;
+      stroke-width: 4;
+      fill: none;
+    }
+  }
+}
+
+input[type="text"].name {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  margin-right: 16px;
+}
+
+svg.trash-can {
+  stroke: gray;
+  fill: gray;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--padding);
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  /* for desktop */
+  @media screen and (min-width: 600px) {
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

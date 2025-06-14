@@ -1,0 +1,12 @@
+<label class="checkbox-wrapper">
+  <input type="checkbox" class="checkbox" (change)="onCheckItem($event)" [checked]="item.completed">
+
+  <!-- this is the white tick -->
+  <svg viewBox="0 0 33 33">
+    <path d="M6,16L13,23L27,10"></path>
+  </svg>
+</label>
+
+<input type="text" [value]="item.description" placeholder="Nuevo ítem" class="name" (input)="onChangeName($event)">
+
+<svg appTrashCanSvg class="trash-can" (click)="deleteItem()"></svg>
