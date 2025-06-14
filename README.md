@@ -2,7 +2,7 @@
 
 Application to make check lists and track completed and pending items.
 
-Deployed to <https://listas.jaimeelingeniero.es>
+This project is an Angular application deployed in AWS S3 under domain listas.jaimeelingeniero.es
 
 [![Build And Deploy](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/Listas/actions/workflows/build-and-publish.yml)
 
