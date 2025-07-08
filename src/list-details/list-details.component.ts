@@ -15,22 +15,45 @@ import { ListSectionComponent } from './list-section/list-section.component';
   imports: [CommonModule, ListSectionComponent, IconsSvgModule, CdkDrag, CdkDropList],
 })
 export class ListDetailsComponent implements OnInit {
+  @ViewChild('changeListNameDialog') changeListNameDialog: ElementRef<HTMLDialogElement>;
   @ViewChild('deleteListDialog') deleteListDialog: ElementRef<HTMLDialogElement>;
   @ViewChild('cleanChecksDialog') cleanChecksDialog: ElementRef<HTMLDialogElement>;
 
   @Input() listId!: string;
 
+  private toPathPipe = new ToPathPipe();
+
   public list: List;
+
+  public isNameValid: boolean = true;
+  public name: string = '';
 
   constructor(private readonly listsService: ListsService, private readonly router: Router, private readonly elRef: ElementRef<HTMLElement>) { }
 
   public ngOnInit() {
-    const toPathPipe = new ToPathPipe();
-    this.list = this.listsService.allLists().find(l => toPathPipe.transform(l.name) === this.listId)!;
+    this.list = this.listsService.allLists().find(l => this.toPathPipe.transform(l.name) === this.listId)!;
   }
 
   public navigateHome() {
     this.router.navigate(['']);
+  }
+
+  public onChangeName(e: Event) {
+    const input = e.target as HTMLInputElement;
+    this.name = input.value.trim();
+
+    this.isNameValid = this.name.length > 0
+      && this.name.length < 30
+      && !this.listsService.allLists().find(list => this.toPathPipe.transform(list.name) === this.toPathPipe.transform(this.name));
+  }
+
+  public updateListName() {
+    if (this.name.length === 0) return;
+    
+    this.changeListNameDialog.nativeElement.close();
+    this.list.name = this.name;
+    this.listsService.writeLists();
+    this.router.navigate(['/', this.toPathPipe.transform(this.name)])
   }
 
   public deleteList() {
