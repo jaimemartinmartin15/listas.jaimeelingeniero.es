@@ -5,7 +5,11 @@
 
   <h1 class="title">{{list.name}}</h1>
 
-  <button class="delete-button" (click)="deleteListDialog.showModal()">
+  <button class="change-name" (click)="changeListNameDialog.showModal()">
+    <svg appPencilSvg></svg>
+  </button>
+
+  <button class="delete" (click)="deleteListDialog.showModal()">
     <svg appTrashCanSvg></svg>
   </button>
 </header>
@@ -23,6 +27,25 @@
       [ngClass]="{'toggle-sections-button': true, 'toggle-sections-button--expanded': list.isExpanded}"></svg></button>
   <button (click)="addNewSection()"><svg appPlusSvg></svg></button>
 </footer>
+
+<dialog class="dialog" #changeListNameDialog>
+  <div class="content">
+    <p>Nuevo nombre de lista:</p>
+
+    <input type="text" (input)="onChangeName($event)">
+
+    <div class="error-message" *ngIf="!isNameValid">Pueba otro nombre</div>
+
+    <div class="buttons-wrapper">
+      <button class="primary-button" (click)="updateListName()" [disabled]="!isNameValid">
+        Cambiar
+      </button>
+      <button class="secondary-button" (click)="changeListNameDialog.close()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</dialog>
 
 <dialog class="dialog" #deleteListDialog>
   <div class="content">

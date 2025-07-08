@@ -50,7 +50,7 @@ ul {
           border: 1px solid black;
         }
       }
-      
+
       .list-name {
         text-overflow: ellipsis;
         text-wrap: nowrap;
@@ -64,20 +64,5 @@ ul {
         font-size: 0.9rem;
       }
     }
-  }
-}
-
-.dialog .content {
-  input {
-    padding: 3px 7px;
-    text-align: center;
-    border-radius: 4px;
-    font-size: 1.1rem;
-  }
-
-  div.error-message {
-    margin-top: 5px;
-    font-size: 1rem;
-    color: red;
   }
 }
