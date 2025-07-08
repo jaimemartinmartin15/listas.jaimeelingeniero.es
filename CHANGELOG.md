@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+
+Allow to change the list name.
+
 ## 1.1.0
 
 Allow to import 'Lista de viaje' list from old app through a query param 'lista-de-viaje'.
